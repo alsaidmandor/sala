@@ -5,6 +5,7 @@ import 'package:shop_app/layout/cubit/cubit.dart';
 import 'package:shop_app/layout/cubit/states.dart';
 import 'package:shop_app/model/favorites_model.dart';
 import 'package:shop_app/shared/component/components.dart';
+import 'package:shop_app/shared/component/constants.dart';
 import 'package:shop_app/shared/style/colors.dart';
 
 class FavoritesScreen extends StatelessWidget {
@@ -72,6 +73,7 @@ class FavoritesScreen extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 14.0,
                         height: 1.3,
+                        color: getColor(context),
                       ),
                     ),
                     Spacer(),

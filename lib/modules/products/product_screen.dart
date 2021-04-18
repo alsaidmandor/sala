@@ -3,11 +3,14 @@ import 'package:conditional_builder/conditional_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:shop_app/layout/cubit/cubit.dart';
 import 'package:shop_app/layout/cubit/states.dart';
 import 'package:shop_app/model/categories_model.dart';
 import 'package:shop_app/model/home_model.dart';
 import 'package:shop_app/shared/component/components.dart';
+import 'package:shop_app/shared/component/constants.dart';
+import 'package:shop_app/shared/cubit/cubit.dart';
 import 'package:shop_app/shared/style/colors.dart';
 
 class ProductsScreen extends StatelessWidget {
@@ -81,8 +84,11 @@ class ProductsScreen extends StatelessWidget {
                 children: [
                   Text(
                     'Categories',
-                    style:
-                        TextStyle(fontSize: 24.0, fontWeight: FontWeight.w600),
+                    style: TextStyle(
+                      fontSize: 24.0,
+                      fontWeight: FontWeight.w600,
+                      color: getColor(context),
+                    ),
                   ),
                   SizedBox(
                     height: 10.0,
@@ -105,8 +111,11 @@ class ProductsScreen extends StatelessWidget {
                   ),
                   Text(
                     'New Products',
-                    style:
-                        TextStyle(fontSize: 24.0, fontWeight: FontWeight.w600),
+                    style: TextStyle(
+                      fontSize: 24.0,
+                      fontWeight: FontWeight.w600,
+                      color: getColor(context),
+                    ),
                   ),
                 ],
               ),
@@ -135,7 +144,7 @@ class ProductsScreen extends StatelessWidget {
       );
 
   Widget buildGridProduct(context, ProductModel model) => Container(
-        color: Colors.white,
+        color: AppCubit.get(context).isDark ? HexColor('333739') : Colors.white,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -175,6 +184,7 @@ class ProductsScreen extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 14.0,
                       height: 1.3,
+                      color: getColor(context),
                     ),
                   ),
                   Row(

@@ -1,4 +1,7 @@
+import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:shop_app/modules/login/login.dart';
+import 'package:shop_app/shared/cubit/cubit.dart';
 import 'package:shop_app/shared/network/local/cached_helper.dart';
 
 import 'components.dart';
@@ -16,4 +19,8 @@ void signOut(context) {
       navigateAndFinish(context, LoginScreen());
     }
   });
+}
+
+Color getColor(context) {
+  return AppCubit.get(context).isDark ? Colors.white : HexColor('333739');
 }

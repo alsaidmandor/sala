@@ -5,6 +5,7 @@ import 'package:shop_app/layout/cubit/cubit.dart';
 import 'package:shop_app/layout/cubit/states.dart';
 import 'package:shop_app/shared/component/components.dart';
 import 'package:shop_app/shared/component/constants.dart';
+import 'package:shop_app/shared/cubit/cubit.dart';
 
 class SettingsScreen extends StatelessWidget {
   var nameController = TextEditingController();
@@ -33,6 +34,20 @@ class SettingsScreen extends StatelessWidget {
                 key: formKey,
                 child: Column(
                   children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        IconButton(
+                          icon: Icon(
+                            Icons.brightness_4_outlined,
+                            color: getColor(context),
+                          ),
+                          onPressed: () {
+                            AppCubit.get(context).changeAppMode();
+                          },
+                        ),
+                      ],
+                    ),
                     if (state is ShopLoadingUpdateUserState)
                       LinearProgressIndicator(),
                     SizedBox(
